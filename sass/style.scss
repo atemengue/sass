@@ -1,7 +1,13 @@
 @import './libs/reset.scss';
+@import './libs/responsive.scss';
+
+$primary: rgb(209, 214, 236);
+$padding: 10px;
 
 body {
-  background: #000000;
+  background: white;
+  font-family: sans-serif;
+  padding: $padding + 10px;
 }
 
 p {
@@ -15,18 +21,67 @@ p {
     }
 
     thead {
-      background: red;
-      color: #FFF ;
+      background: {
+        color: black;
+        repeat: no-repeat;
+      }
     }
+
+}
+
+%shadow {
+  box-shadow:  8px 1px 1px rgba($color: #143326c0, $alpha: 0.6)
+}
+
+%btn {
+  border-radius: 3px;
+  padding: 5px 12px;
 }
 
 .btn {
-  background: rgb(62, 81, 189);
-  &:hover {
-    background: rgb(62, 81, 189)
+  @extend %btn;
+  text-decoration: none;
+  background: darken($primary,10);
+  color: white;
+
+  &:hover{
+    background: rgb(67,98,155)
   }
 
-  .theme-vert & {
-    background: green;
+  @media screen {
+    padding: 10px;
+  }
+}
+
+.btn-danger {
+  @extend .btn;
+  background:  blue;
+  &:hover {
+    background: rgb(69, 27, 116)
+  }
+}
+.card {
+  @extend %shadow;
+  padding: 10px;
+}
+.card-action {
+  @extend .btn;
+}
+
+.card-cancel {
+  @extend .btn-danger;
+  @extend %shadow;
+}
+
+
+.card-actions {
+  display: flex;
+  flex-direction: row;
+}
+
+// interpolation 
+@media #{$medium-up} {
+  .btn {
+    width: 100%;
   }
 }
