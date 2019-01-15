@@ -1,0 +1,32 @@
+@import './libs/reset.scss';
+
+body {
+  background: #000000;
+}
+
+p {
+  margin: 1rem;
+}
+
+.table {
+    width: 100%;
+    td  {
+      border: 1px solid #ccc;
+    }
+
+    thead {
+      background: red;
+      color: #FFF ;
+    }
+}
+
+.btn {
+  background: rgb(62, 81, 189);
+  &:hover {
+    background: rgb(62, 81, 189)
+  }
+
+  .theme-vert & {
+    background: green;
+  }
+}
